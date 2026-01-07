@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">🧠 Brain Tumor Classification</h1>
+                <p class="subtitle">AI-Powered Medical Image Analysis using Deep Learning</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-card">
+                    <div class="upload-icon">📤</div>
+                    <h2>Upload MRI Scan</h2>
+                    <p class="upload-description">Drag and drop an image or click to browse</p>
+                    
+                    <div class="drop-zone" id="dropZone">
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <div class="drop-zone-content">
+                            <svg class="upload-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                            </svg>
+                            <p class="drop-text">Drop your image here or <span class="browse-text">browse</span></p>
+                            <p class="file-types">Supports: JPG, PNG, JPEG</p>
+                        </div>
+                    </div>
+
+                    <!-- Image Preview -->
+                    <div class="preview-container" id="previewContainer" style="display: none;">
+                        <img id="imagePreview" src="" alt="Preview">
+                        <button class="remove-btn" id="removeBtn">✕ Remove</button>
+                    </div>
+
+                    <!-- Analyze Button -->
+                    <button class="analyze-btn" id="analyzeBtn" disabled>
+                        <span class="btn-text">Analyze Image</span>
+                        <span class="btn-loader" style="display: none;">
+                            <span class="spinner"></span> Analyzing...
+                        </span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <div class="results-header">
+                        <h2>Analysis Results</h2>
+                        <button class="new-analysis-btn" id="newAnalysisBtn">New Analysis</button>
+                    </div>
+
+                    <!-- Main Result -->
+                    <div class="main-result">
+                        <div class="result-icon" id="resultIcon">🔬</div>
+                        <h3 class="result-title">Detected Condition</h3>
+                        <p class="result-class" id="resultClass">-</p>
+                        <div class="confidence-container">
+                            <div class="confidence-label">
+                                <span>Confidence</span>
+                                <span class="confidence-value" id="confidenceValue">0%</span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div class="confidence-fill" id="confidenceFill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- All Predictions -->
+                    <div class="all-predictions">
+                        <h4>All Class Probabilities</h4>
+                        <div class="predictions-grid" id="predictionsGrid">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>⚠️ This is a demonstration tool. Always consult medical professionals for diagnosis.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

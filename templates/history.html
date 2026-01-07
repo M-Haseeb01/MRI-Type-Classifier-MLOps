@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History - Brain Tumor Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-brand">🧠 BrainScan AI</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predict">Predict</a></li>
+                <li><a href="/about-model">About</a></li>
+                <li><a href="/history" class="active">History</a></li>
+                <li class="theme-toggle">
+                    <span class="theme-toggle-label">🌙</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="theme-toggle-label">☀️</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">📊 Prediction History</h1>
+                <p class="subtitle">View all your previous brain tumor classification predictions</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="upload-card">
+                <div class="results-header">
+                    <h2>All Predictions</h2>
+                    {% if predictions %}
+                    <button class="new-analysis-btn" id="clearHistoryBtn"
+                        style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3);">
+                        🗑️ Clear History
+                    </button>
+                    {% endif %}
+                </div>
+
+                {% if predictions %}
+                <div class="history-table-container">
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Prediction</th>
+                                <th>Confidence</th>
+                                <th>Timestamp</th>
+                                <th>Model Version</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for prediction in predictions %}
+                            <tr>
+                                <td>
+                                    <img src="{{ url_for('static', filename='../history_images/' + prediction[1]) }}"
+                                        alt="MRI Scan" class="history-thumbnail">
+                                </td>
+                                <td>
+                                    <strong style="color: var(--primary-blue);">{{ prediction[2] }}</strong>
+                                </td>
+                                <td>
+                                    {% set confidence_percent = (prediction[3] * 100) | round(2) %}
+                                    <span class="confidence-badge 
+                                        {% if confidence_percent >= 90 %}confidence-high
+                                        {% elif confidence_percent >= 70 %}confidence-medium
+                                        {% else %}confidence-low{% endif %}">
+                                        {{ confidence_percent }}%
+                                    </span>
+                                </td>
+                                <td style="color: var(--text-secondary);">
+                                    {{ prediction[4] }}
+                                </td>
+                                <td style="color: var(--text-secondary);">
+                                    {{ prediction[5] }}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div
+                    style="margin-top: 2rem; padding: 1.5rem; background: rgba(37, 99, 235, 0.05); border-radius: 12px; border: 1px solid var(--border-color);">
+                    <p style="color: var(--text-secondary); text-align: center;">
+                        📈 Total Predictions: <strong style="color: var(--primary-blue);">{{ predictions|length
+                            }}</strong>
+                    </p>
+                </div>
+
+                {% else %}
+                <div style="text-align: center; padding: 4rem 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📭</div>
+                    <h3 style="margin-bottom: 1rem;">No Predictions Yet</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        You haven't made any predictions yet. Upload an MRI scan to get started!
+                    </p>
+                    <a href="/predict" style="text-decoration: none;">
+                        <button class="primary-btn" style="max-width: 300px; margin: 0 auto;">
+                            Make Your First Prediction →
+                        </button>
+                    </a>
+                </div>
+                {% endif %}
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>⚠️ This is a demonstration tool for educational purposes. Always consult medical professionals for
+                diagnosis and treatment.</p>
+            <p style="margin-top: 0.5rem;">Model Version: v1.0 | Powered by TensorFlow & Deep Learning</p>
+        </footer>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Full size image">
+    </div>
+
+    <script src="{{ url_for('static', filename='history.js') }}"></script>
+</body>
+
+</html>

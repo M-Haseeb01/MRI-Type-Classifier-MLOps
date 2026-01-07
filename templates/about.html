@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Model - Brain Tumor Classification</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="/" class="nav-brand">🧠 BrainScan AI</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predict">Predict</a></li>
+                <li><a href="/about-model" class="active">About</a></li>
+                <li><a href="/history">History</a></li>
+                <li class="theme-toggle">
+                    <span class="theme-toggle-label">🌙</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="theme-toggle-label">☀️</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">📚 About Brain Tumors & Our Model</h1>
+                <p class="subtitle">Understanding brain tumors, MRI imaging, and AI-powered diagnosis</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Types of Brain Tumors -->
+            <section class="upload-card">
+                <h2 style="margin-bottom: 2rem;">🧬 Types of Brain Tumors</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Glioma</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Gliomas are tumors that originate from glial cells in the brain. They are the most common
+                            type of primary brain tumor.
+                        </p>
+                        <ul>
+                            <li>Arise from supportive tissue of the brain</li>
+                            <li>Can be slow-growing or aggressive</li>
+                            <li>Include astrocytomas and oligodendrogliomas</li>
+                            <li>Account for about 33% of all brain tumors</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Meningioma</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Meningiomas develop from the meninges, the protective membranes covering the brain and
+                            spinal cord.
+                        </p>
+                        <ul>
+                            <li>Usually benign and slow-growing</li>
+                            <li>Most common in adults aged 40-70</li>
+                            <li>More frequent in women</li>
+                            <li>Often treatable with surgery</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Pituitary Tumor</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            Pituitary tumors form in the pituitary gland, which controls hormone production in the body.
+                        </p>
+                        <ul>
+                            <li>Usually benign (non-cancerous)</li>
+                            <li>Can affect hormone levels</li>
+                            <li>May cause vision problems</li>
+                            <li>Treatable with medication or surgery</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Symptoms -->
+            <section class="upload-card" style="margin-top: 2rem;">
+                <h2 style="margin-bottom: 2rem;">⚕️ Common Symptoms</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>General Symptoms</h3>
+                        <ul>
+                            <li>Persistent headaches</li>
+                            <li>Nausea and vomiting</li>
+                            <li>Seizures or convulsions</li>
+                            <li>Changes in personality or behavior</li>
+                            <li>Difficulty with balance</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Cognitive Symptoms</h3>
+                        <ul>
+                            <li>Memory problems</li>
+                            <li>Confusion or disorientation</li>
+                            <li>Difficulty concentrating</li>
+                            <li>Speech difficulties</li>
+                            <li>Vision or hearing problems</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Physical Symptoms</h3>
+                        <ul>
+                            <li>Weakness in limbs</li>
+                            <li>Numbness or tingling</li>
+                            <li>Coordination problems</li>
+                            <li>Fatigue and drowsiness</li>
+                            <li>Hormonal imbalances</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MRI Basics -->
+            <section class="upload-card" style="margin-top: 2rem;">
+                <h2 style="margin-bottom: 2rem;">🔬 MRI Imaging Basics</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>What is MRI?</h3>
+                        <p style="color: var(--text-secondary);">
+                            Magnetic Resonance Imaging (MRI) is a non-invasive medical imaging technique that uses
+                            powerful magnets
+                            and radio waves to create detailed images of organs and tissues inside the body.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>How MRI Works</h3>
+                        <ul>
+                            <li>Uses strong magnetic fields</li>
+                            <li>Radio waves excite hydrogen atoms</li>
+                            <li>Computer processes signals into images</li>
+                            <li>Provides detailed soft tissue contrast</li>
+                            <li>No radiation exposure</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Why MRI for Brain Tumors?</h3>
+                        <ul>
+                            <li>Superior soft tissue visualization</li>
+                            <li>Can detect small abnormalities</li>
+                            <li>Shows tumor size and location</li>
+                            <li>Helps distinguish tumor types</li>
+                            <li>Monitors treatment progress</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How Our Model Works -->
+            <section class="upload-card" style="margin-top: 2rem;">
+                <h2 style="margin-bottom: 2rem;">🤖 How Our AI Model Works</h2>
+
+                <div class="info-card" style="margin-bottom: 2rem;">
+                    <h3>Deep Learning Architecture</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Our model uses a Convolutional Neural Network (CNN), a type of deep learning architecture
+                        specifically
+                        designed for image analysis. The network has been trained on thousands of labeled MRI scans to
+                        learn
+                        patterns and features that distinguish different types of brain tumors.
+                    </p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>1. Image Processing</h3>
+                        <ul>
+                            <li>MRI scan is uploaded</li>
+                            <li>Image is resized to 224x224 pixels</li>
+                            <li>Pixel values are normalized</li>
+                            <li>Image is converted to RGB format</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>2. Feature Extraction</h3>
+                        <ul>
+                            <li>Convolutional layers detect patterns</li>
+                            <li>Pooling layers reduce dimensions</li>
+                            <li>Multiple layers learn hierarchical features</li>
+                            <li>From edges to complex structures</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>3. Classification</h3>
+                        <ul>
+                            <li>Fully connected layers process features</li>
+                            <li>Softmax activation for probabilities</li>
+                            <li>4 output classes (tumor types)</li>
+                            <li>Confidence score for each class</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 2rem;">
+                    <h3>Model Performance</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        Our model has been trained on a comprehensive dataset of brain MRI scans and achieves high
+                        accuracy
+                        in distinguishing between different tumor types. The model provides not just a single
+                        prediction,
+                        but probability scores for all classes, giving medical professionals additional context for
+                        their diagnosis.
+                    </p>
+                </div>
+
+                <div class="info-card"
+                    style="margin-top: 2rem; background: rgba(37, 99, 235, 0.1); border-color: var(--primary-blue);">
+                    <h3 style="color: var(--primary-blue);">⚠️ Important Disclaimer</h3>
+                    <p style="color: var(--text-primary); line-height: 1.8;">
+                        This AI model is designed as a supportive tool for medical professionals and should NOT be used
+                        as
+                        the sole basis for diagnosis or treatment decisions. Always consult qualified healthcare
+                        providers
+                        for proper medical evaluation and diagnosis. This tool is for educational and demonstration
+                        purposes.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Technical Details -->
+            <section class="upload-card" style="margin-top: 2rem;">
+                <h2 style="margin-bottom: 2rem;">⚙️ Technical Specifications</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Model Details</h3>
+                        <ul>
+                            <li><strong>Architecture:</strong> Convolutional Neural Network</li>
+                            <li><strong>Framework:</strong> TensorFlow/Keras</li>
+                            <li><strong>Input Size:</strong> 224x224x3</li>
+                            <li><strong>Classes:</strong> 4 (Glioma, Meningioma, Pituitary, No Tumor)</li>
+                            <li><strong>Version:</strong> v1.0</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Training Data</h3>
+                        <ul>
+                            <li>Thousands of labeled MRI scans</li>
+                            <li>Balanced dataset across all classes</li>
+                            <li>Data augmentation applied</li>
+                            <li>Validation and test splits</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>Features</h3>
+                        <ul>
+                            <li>Real-time prediction</li>
+                            <li>Confidence scoring</li>
+                            <li>Multi-class probability output</li>
+                            <li>Prediction history tracking</li>
+                            <li>Image preprocessing pipeline</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>⚠️ This is a demonstration tool for educational purposes. Always consult medical professionals for
+                diagnosis and treatment.</p>
+            <p style="margin-top: 0.5rem;">Model Version: v1.0 | Powered by TensorFlow & Deep Learning</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
