@@ -1,0 +1,27 @@
+# Ignore virtual environment
+venv/
+.env
+
+# Ignore git
+.git/
+.gitignore
+
+# Ignore large dataset (we only need the trained model)
+archive/
+
+# Ignore cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore local database and history images (optional, keep if you want to pre-populate)
+# predictions.db
+# history_images/
+
+# Ignore MLflow runs
+mlruns/
